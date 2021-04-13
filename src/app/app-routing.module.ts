@@ -9,6 +9,7 @@ import {DetailComponent} from './components/user/detail/detail.component';
 import {DashboardComponent} from './components/admin/dashboard/dashboard.component';
 import {UserListComponent} from './components/admin/user-list/user-list.component';
 import {ProductListComponent} from './components/admin/product-list/product-list.component';
+import {TransactionListComponent} from './components/admin/transaction-list/transaction-list.component';
 import {UnauthorizedComponent} from './components/error/unauthorized/unauthorized.component';
 import {NotFoundComponent} from './components/error/not-found/not-found.component';
 import {AuthGuard} from "./guards/auth.guard"
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: 'dashboard',   component: DashboardComponent, canActivate:[AuthGuard], data: {roles: [Role.ADMIN]}  },
   {path: 'user-list',   component: UserListComponent, canActivate:[AuthGuard], data: {roles: [Role.ADMIN]}  },    
   {path: 'product-list',   component: ProductListComponent, canActivate:[AuthGuard], data: {roles: [Role.ADMIN]}  },  
+  {path: 'transaction-list',   component: TransactionListComponent, canActivate:[AuthGuard], data: {roles: [Role.ADMIN]}  },  
 
   //error pages
   {path: '404', component: NotFoundComponent},
