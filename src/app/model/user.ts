@@ -4,5 +4,5 @@ export class User {
   username: string="";
   password: string="";
   name: string="";
-  role: Role | undefined;
+  role!: Role;
 }
