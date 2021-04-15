@@ -5,8 +5,12 @@ import { map } from 'rxjs/operators';
 import { User } from "../model/user"
 import { Product } from "../model/product"
 import { Transaction } from "../model/transaction"
+import { environment } from '../../environments/environment';
 
-let API_URL = "http://localhost:8091/api/user/"
+//let API_URL = "http://localhost:8091/api/user/"
+
+let API_URL = environment.baseUrlBe + "/api/user/";
+let _baseUrlFe = environment.baseUrlFe;  
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +18,8 @@ let API_URL = "http://localhost:8091/api/user/"
 export class UserService {
   public currentUser: Observable<User>;
   private currentUserSubject: BehaviorSubject<User>;
+
+
 
   constructor(private http: HttpClient) { 
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser') || '{}'));

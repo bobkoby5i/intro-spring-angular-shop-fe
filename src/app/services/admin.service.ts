@@ -5,8 +5,11 @@ import {map} from 'rxjs/operators';
 import {User} from '../model/user';
 import {Product} from '../model/product';
 import {Transaction} from '../model/transaction';
+import { environment } from '../../environments/environment';
 
-let API_URL = "http://localhost:8091/api/admin/";
+//let API_URL = "http://localhost:8091/api/admin/";
+let API_URL = environment.baseUrlBe + "/api/admin/";
+let _baseUrlFe = environment.baseUrlFe;   
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +17,8 @@ let API_URL = "http://localhost:8091/api/admin/";
 export class AdminService {
   currentUser!: User;
   headers!: HttpHeaders;  
+
+ 
 
   constructor(private http: HttpClient) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser')|| "{}");
