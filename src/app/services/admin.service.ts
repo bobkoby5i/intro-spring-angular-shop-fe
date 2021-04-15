@@ -56,7 +56,7 @@ export class AdminService {
   }
 
   deleteProduct(product: Product): Observable<any> {
-    return this.http.post(API_URL + "product-delete", JSON.stringify(product),
+    return this.http.delete(API_URL + "product-delete" + "/" + product.id, 
     {headers: this.headers});
   }
 
